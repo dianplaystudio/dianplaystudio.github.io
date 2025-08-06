@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta Tag SEO untuk Halaman Postingan -->
+    <title>Judul Postingan Anda - Nama Situs Anda</title>
+    <meta name="description" content="Baca postingan lengkap tentang [Topik Postingan] dan temukan wawasan baru.">
+    <meta name="keywords" content="postingan, artikel, blog, [kata kunci postingan 1], [kata kunci postingan 2], nama situs anda">
+    <meta name="author" content="Nama Penulis Postingan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://username.github.io/nama-repositori-anda/nama-postingan-anda.html"> <!-- Ganti dengan URL kanonis postingan Anda -->
+
+    <!-- Open Graph Meta Tags untuk Berbagi di Media Sosial -->
+    <meta property="og:title" content="Judul Postingan Anda - Nama Situs Anda">
+    <meta property="og:description" content="Ringkasan singkat postingan Anda untuk media sosial.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://username.github.io/nama-repositori-anda/nama-postingan-anda.html"> <!-- Ganti dengan URL postingan Anda -->
+    <meta property="og:image" content="https://placehold.co/1200x630/4A90E2/FFFFFF?text=Thumbnail+Postingan">
+    <meta property="og:image:alt" content="Gambar thumbnail postingan Anda">
+
+    <!-- Twitter Card Meta Tags untuk Berbagi di Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NamaTwitterAnda"> <!-- Ganti dengan handle Twitter Anda (jika ada) -->
+    <meta name="twitter:creator" content="@NamaTwitterAnda"> <!-- Ganti dengan handle Twitter Anda (jika ada) -->
+    <meta name="twitter:title" content="Judul Postingan Anda">
+    <meta name="twitter:description" content="Ringkasan singkat postingan Anda untuk Twitter.">
+    <meta name="twitter:image" content="https://placehold.co/800x418/4A90E2/FFFFFF?text=Thumbnail+Postingan">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Menggunakan font Inter dari Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Latar belakang abu-abu muda */
+            color: #333;
+            padding-top: 72px; /* Sesuaikan dengan tinggi header */
+        }
+        /* Styling untuk icon pencarian SVG */
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        /* Styling untuk pemisah di footer */
+        .footer-nav-item:not(:last-child)::after {
+            content: ' ● ';
+            margin-left: 0.75rem;
+            margin-right: 0.75rem;
+            color: #9ca3af;
+        }
+
+        /* Styling untuk video sticky */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Kelas untuk video sticky saat di-scroll */
+        .video-sticky {
+            position: fixed;
+            bottom: 1rem; /* Jarak dari bawah */
+            right: 1rem; /* Jarak dari kanan */
+            width: 320px; /* Lebar video kecil */
+            height: 180px; /* Tinggi video kecil (rasio 16:9) */
+            z-index: 1000; /* Pastikan di atas konten lain */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .video-sticky .close-button {
+            position: absolute;
+            top: -15px; /* Posisi di atas kanan video, disesuaikan untuk ukuran lebih besar */
+            right: -15px; /* Posisi di atas kanan video, disesuaikan untuk ukuran lebih besar */
+            background-color: #ef4444; /* Warna merah */
+            color: white;
+            border-radius: 9999px; /* Lingkaran penuh */
+            width: 30px; /* Lebar tombol diperbesar */
+            height: 30px; /* Tinggi tombol diperbesar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem; /* Ukuran font diperbesar */
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s ease;
+        }
+        .video-sticky .close-button:hover {
+            background-color: #dc2626;
+        }
+
+        /* Responsif untuk video sticky di layar kecil */
+        @media (max-width: 768px) {
+            .video-sticky {
+                width: 280px;
+                height: 157.5px; /* 16:9 ratio */
+                bottom: 0.5rem;
+                right: 0.5rem;
+            }
+            .video-sticky .close-button {
+                width: 28px; /* Sedikit lebih kecil di mobile */
+                height: 28px;
+                font-size: 0.9rem;
+                top: -12px;
+                right: -12px;
+            }
+        }
+        /* Styling untuk hit counter agar responsif */
+        .hit-counter img {
+            max-width: 100%; /* Pastikan gambar tidak melebihi lebar kontainer */
+            height: auto; /* Pertahankan rasio aspek */
+            border: none; /* Hapus border default */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header (Sticky) -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 shadow-xl fixed top-0 left-0 right-0 z-50 rounded-b-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold tracking-tight">Nama Situs Anda</a>
+            <nav>
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="index.html" class="hover:text-blue-200 transition duration-300">Beranda</a></li>
+                    <li><a href="index.html#artikel-terbaru" class="hover:text-blue-200 transition duration-300">Artikel</a></li>
+                    <li><a href="index.html#contact-form" class="hover:text-blue-200 transition duration-300">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Section (Dipindahkan ke bawah header dan diperkecil) -->
+    <section class="bg-gray-700 p-3 shadow-lg">
+        <div class="container mx-auto flex justify-center items-center">
+            <div class="relative w-full max-w-lg">
+                <input type="text" placeholder="Cari artikel..." class="w-full bg-gray-600 text-white placeholder-gray-300 px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out pl-10 text-sm">
+                <button type="button" class="absolute left-3 top-1/2 -translate-y-1/2 p-1 text-gray-300">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Konten Utama Halaman Postingan -->
+    <main class="flex-grow container mx-auto p-4">
+        <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+            <!-- Breadcrumb Otomatis -->
+            <nav class="text-sm text-gray-600 mb-4" aria-label="breadcrumb">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="index.html" class="text-blue-600 hover:text-blue-800">Beranda</a>
+                        <span class="mx-2 text-gray-400">/</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span id="breadcrumb-post-title" class="text-gray-800 font-medium">Judul Postingan Anda</span>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Judul Postingan Otomatis -->
+            <h1 id="post-title" class="text-4xl font-extrabold text-gray-900 mb-6 text-center leading-tight">
+                Judul Postingan Anda yang Sangat Menarik dan Informatif
+            </h1>
+
+            <!-- Informasi Tambahan (Realtime View) -->
+            <div class="text-center text-gray-500 text-sm mb-8">
+                <!-- Hit Counter Realtime -->
+                <span id="realtime-views" class="font-semibold inline-block hit-counter">
+                    <a href="https://www.hitwebcounter.com" target="_blank">
+                        <img src="https://hitwebcounter.com/counter/counter.php?page=21331754&style=0011&nbdigits=5&type=page&initCount=0" title="Counter Widget" Alt="Visit counter For Websites" />
+                    </a>
+                </span>
+                <span class="ml-1">Sudah Dilihat</span> <!-- Tambahan teks "View" -->
+            </div>
+
+            <!-- Thumbnail Gambar -->
+            <div class="mb-8 rounded-lg overflow-hidden shadow-md">
+                <img src="https://placehold.co/800x450/667EEA/FFFFFF?text=Thumbnail+Postingan+Besar" alt="Thumbnail Postingan Anda" class="w-full h-auto object-cover">
+            </div>
+
+            <!-- Video YouTube Iframe -->
+            <div id="video-wrapper" class="mb-8">
+                <div class="video-container" id="main-video-container">
+                    <iframe src="https://www.youtube.com/embed/MYJAo-f17yk?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <!-- Ganti MYJAo-f17yk dengan ID video YouTube Anda -->
+                    <!-- mute=1 agar autoplay tidak mengganggu pengalaman pengguna -->
+                </div>
+            </div>
+
+            <!-- Deskripsi Postingan -->
+            <div class="prose max-w-none text-gray-800 leading-relaxed">
+                <p class="mb-4">Selamat datang di postingan blog kami yang mendalam! Di sini, kami akan membahas secara rinci topik yang sangat relevan dan menarik bagi Anda. Kami percaya bahwa informasi yang kami sajikan akan memberikan wawasan baru dan solusi praktis untuk kebutuhan Anda.</p>
+                <p class="mb-4">Setiap paragraf dirancang untuk memberikan pemahaman yang komprehensif, dimulai dari dasar hingga konsep yang lebih kompleks. Kami berusaha keras untuk menyajikan konten yang tidak hanya informatif tetapi juga mudah dicerna, sehingga Anda dapat dengan cepat mengaplikasikan pengetahuan yang diperoleh.</p>
+                <p class="mb-4">Dalam bagian ini, kami akan mengeksplorasi berbagai aspek dari topik utama, didukung dengan contoh-contoh nyata dan data yang relevan. Tujuan kami adalah untuk memastikan Anda mendapatkan gambaran lengkap dan mendalam tentang subjek yang dibahas.</p>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 mt-6">Sub-judul Penting 1</h2>
+                <p class="mb-4">Kami juga akan menyertakan beberapa tips dan trik yang telah terbukti efektif. Ini akan membantu Anda menghindari kesalahan umum dan memaksimalkan potensi dari apa yang telah Anda pelajari. Ingat, praktik adalah kunci untuk penguasaan!</p>
+                <ul class="list-disc list-inside mb-4 ml-4">
+                    <li>Poin penting pertama yang harus Anda perhatikan.</li>
+                    <li>Poin kedua yang memberikan nilai tambah signifikan.</li>
+                    <li>Poin ketiga yang merangkum inti dari pembahasan.</li>
+                </ul>
+                <p class="mb-4">Kami sangat antusias untuk berbagi pengetahuan ini dengan Anda. Jangan ragu untuk memberikan komentar atau pertanyaan di bagian bawah, kami akan dengan senang hati berinteraksi dan memberikan klarifikasi lebih lanjut.</p>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4 mt-6">Sub-judul Penting 2</h2>
+                <p class="mb-4">Bagian terakhir ini akan menyimpulkan semua poin utama yang telah dibahas dan memberikan pandangan ke depan tentang bagaimana informasi ini dapat terus berkembang. Kami berharap Anda menemukan postingan ini berharga dan menginspirasi.</p>
+                <p class="mb-4">Terima kasih telah meluangkan waktu untuk membaca. Kami menantikan kehadiran Anda di postingan kami berikutnya!</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 mt-auto rounded-t-xl shadow-inner">
+        <div class="container mx-auto text-center">
+            <nav class="mb-4">
+                <ul class="flex flex-wrap justify-center text-md">
+                    <li class="footer-nav-item"><a href="#" class="hover:text-gray-300 transition duration-300">Disclaimer</a></li>
+                    <li class="footer-nav-item"><a href="#" class="hover:text-gray-300 transition duration-300">Privacy Policy</a></li>
+                    <li class="footer-nav-item"><a href="#" class="hover:text-gray-300 transition duration-300">Terms of Service</a></li>
+                </ul>
+            </nav>
+            <p class="text-gray-400 text-sm">&copy; 2025 Nama Situs Anda. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoWrapper = document.getElementById('video-wrapper');
+            const mainVideoContainer = document.getElementById('main-video-container');
+            const postTitleElement = document.getElementById('post-title');
+            const breadcrumbPostTitleElement = document.getElementById('breadcrumb-post-title');
+            
+            // Dapatkan judul postingan dari elemen h1
+            const postTitle = postTitleElement.textContent;
+            breadcrumbPostTitleElement.textContent = postTitle; // Set breadcrumb title
+
+            let videoInitialOffsetTop = mainVideoContainer.offsetTop;
+            let isVideoSticky = false;
+            let isVideoClosed = false;
+
+            // Buat tombol tutup
+            const closeButton = document.createElement('div');
+            closeButton.classList.add('close-button');
+            closeButton.textContent = 'X';
+            closeButton.addEventListener('click', () => {
+                mainVideoContainer.style.display = 'none'; // Sembunyikan video
+                isVideoClosed = true;
+            });
+
+            // Fungsi untuk menangani scroll
+            function handleScroll() {
+                if (isVideoClosed) return; // Jangan lakukan apa-apa jika video sudah ditutup
+
+                // Jika pengguna scroll melewati posisi awal video
+                if (window.scrollY > videoInitialOffsetTop + mainVideoContainer.offsetHeight && !isVideoSticky) {
+                    mainVideoContainer.classList.add('video-sticky');
+                    mainVideoContainer.appendChild(closeButton); // Tambahkan tombol tutup
+                    isVideoSticky = true;
+                } 
+                // Jika pengguna scroll kembali ke atas posisi awal video
+                else if (window.scrollY <= videoInitialOffsetTop + mainVideoContainer.offsetHeight && isVideoSticky) {
+                    mainVideoContainer.classList.remove('video-sticky');
+                    if (closeButton.parentNode === mainVideoContainer) {
+                        mainVideoContainer.removeChild(closeButton); // Hapus tombol tutup
+                    }
+                    isVideoSticky = false;
+                }
+            }
+
+            // Tambahkan event listener untuk scroll
+            window.addEventListener('scroll', handleScroll);
+
+            // Perbarui offset awal video jika ukuran jendela berubah
+            window.addEventListener('resize', () => {
+                videoInitialOffsetTop = videoWrapper.offsetTop;
+                // Panggil handleScroll untuk menyesuaikan posisi video jika perlu
+                handleScroll();
+            });
+
+            // Panggil sekali saat dimuat untuk menangani kasus refresh di tengah halaman
+            handleScroll();
+        });
+    </script>
+</body>
+</html>
