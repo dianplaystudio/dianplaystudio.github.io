@@ -122,26 +122,12 @@
                 <ul class="flex space-x-6 text-lg">
                     <li><a href="#" class="hover:text-blue-200 transition duration-300">TUTORIAL</a></li>
                     <li><a href="#artikel-terbaru" class="hover:text-blue-200 transition duration-300">GAME ASSET</a></li>
-                    <li><a href="#contact-form" class="hover:text-blue-200 transition duration-300">DOWNLOAD</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Search Section (Dipindahkan ke bawah header dan diperkecil) -->
-    <section class="bg-gray-700 p-3 shadow-lg"> <!-- Padding dikurangi -->
-        <div class="container mx-auto flex justify-center items-center">
-            <div class="relative w-full max-w-lg"> <!-- Max width dikurangi -->
-                <input type="text" placeholder="Cari artikel..." class="w-full bg-gray-600 text-white placeholder-gray-300 px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out pl-10 text-sm"> <!-- Padding dan ukuran font dikurangi -->
-                <button type="button" class="absolute left-3 top-1/2 -translate-y-1/2 p-1 text-gray-300"> <!-- Padding ikon dikurangi -->
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
+  
     <!-- Konten Utama dengan Iklan Sticky Kanan Kiri -->
     <main class="flex-grow container mx-auto p-4 flex flex-col lg:flex-row gap-6 relative">
         
@@ -157,42 +143,22 @@
 
             <!-- Bagian Artikel Terbaru -->
             <section id="artikel-terbaru" class="bg-white p-8 rounded-xl shadow-lg mb-8 w-full">
-                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Artikel Terbaru</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Postingan Terbaru</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
                     <!-- Artikel 1 -->
                     <article class="bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
-                        <a href="#" class="block">
+                        <a href="/contoh.html" class="block">
                             <img src="https://placehold.co/400x250/A0B2C8/FFFFFF?text=Thumbnail+Artikel+1" alt="Thumbnail Artikel 1: Judul Artikel Pertama" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Judul Artikel Pertama yang Menarik</h4>
-                            <p class="text-gray-700 text-sm mb-3">Ini adalah ringkasan singkat dari artikel pertama Anda. Pastikan mengandung kata kunci relevan untuk SEO.</p>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Contoh saja</h4>
+                            <p class="text-gray-700 text-sm mb-3">Ini adalah contoh.</p>
                             <span class="text-blue-600 font-medium hover:underline">Baca Selengkapnya &rarr;</span>
                         </a>
                     </article>
-                    <!-- Artikel 2 -->
-                    <article class="bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
-                        <a href="#" class="block">
-                            <img src="https://placehold.co/400x250/C8A0B2/FFFFFF?text=Thumbnail+Artikel+2" alt="Thumbnail Artikel 2: Tips SEO Terbaik 2025" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Tips SEO Terbaik untuk Tahun 2025</h4>
-                            <p class="text-gray-700 text-sm mb-3">Pelajari strategi terbaru untuk meningkatkan peringkat situs Anda di mesin pencari.</p>
-                            <span class="text-blue-600 font-medium hover:underline">Baca Selengkapnya &rarr;</span>
-                        </a>
-                    </article>
-                    <!-- Artikel 3 -->
-                    <article class="bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-xl transition duration-300 ease-in-out">
-                        <a href="#" class="block">
-                            <img src="https://placehold.co/400x250/B2C8A0/FFFFFF?text=Thumbnail+Artikel+3" alt="Thumbnail Artikel 3: Inovasi Teknologi Terbaru" class="w-full h-48 object-cover rounded-md mb-4">
-                            <h4 class="text-xl font-semibold text-gray-900 mb-2">Masa Depan Web: Inovasi Teknologi Terbaru</h4>
-                            <p class="text-gray-700 text-sm mb-3">Jelajahi bagaimana teknologi baru akan membentuk lanskap digital di masa depan.</p>
-                            <span class="text-blue-600 font-medium hover:underline">Baca Selengkapnya &rarr;</span>
-                        </a>
-                    </article>
+                   
                     <!-- Tambahkan lebih banyak artikel di sini sesuai kebutuhan -->
                 </div>
-                <div class="text-center mt-8">
-                    <a href="#" class="btn-primary bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition duration-300 ease-in-out">
-                        Lihat Semua Artikel
-                    </a>
-                </div>
+               
             </section>
 
             <!-- Bagian Formulir Kontak -->
